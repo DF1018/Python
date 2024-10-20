@@ -1,0 +1,1490 @@
+<html class="_9dls touch js-focus-visible _aa4c wbloks_2" lang="zh-tw" dir="ltr" data-js-focus-visible="">
+
+<head>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <title>Instagram</title>
+
+
+    <style type="text/css">
+        #htmlVFBS #bodyVFBS .parentVFBS .bilibili-player-video {
+            margin: 0 !important;
+        }
+
+        #htmlVFBS,
+        #bodyVFBS {
+            overflow: hidden !important;
+            zoom: 100% !important;
+        }
+
+        #htmlVFBS #bodyVFBS .parentVFBS {
+            overflow: visible !important;
+            z-index: auto !important;
+            transform: none !important;
+            -webkit-transform-style: flat !important;
+            transition: none !important;
+            contain: none !important;
+        }
+
+        #htmlVFBS #bodyVFBS .absoluteVFBS {
+            position: absolute !important;
+        }
+
+        #htmlVFBS #bodyVFBS .playerVFBS {
+            position: fixed !important;
+            top: 0px !important;
+            left: 0px !important;
+            width: 100vw !important;
+            height: 100vh !important;
+            max-width: none !important;
+            max-height: none !important;
+            min-width: 0 !important;
+            min-height: 0 !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            z-index: 2147483646 !important;
+            border: none !important;
+            background-color: #000 !important;
+            transform: none !important;
+        }
+
+        #htmlVFBS #bodyVFBS .parentVFBS video {
+            object-fit: contain !important;
+        }
+
+        #htmlVFBS #bodyVFBS .parentVFBS .videoVFBS {
+            width: 100vw !important;
+            height: 100vh !important;
+        }
+
+        #playerControlBtn {
+            text-shadow: none;
+            visibility: hidden;
+            opacity: 0;
+            display: none;
+            transition: all 0.5s ease;
+            cursor: pointer;
+            font: 12px "微软雅黑";
+            margin: 0;
+            width: 64px;
+            height: 20px;
+            line-height: 20px;
+            border: none;
+            text-align: center;
+            position: fixed;
+            z-index: 2147483647;
+            background-color: #27A9D8;
+            color: #FFF;
+        }
+
+        #playerControlBtn:hover {
+            visibility: visible;
+            opacity: 1;
+            background-color: #2774D8;
+        }
+
+        #picinpicBtn {
+            text-shadow: none;
+            visibility: hidden;
+            opacity: 0;
+            display: none;
+            transition: all 0.5s ease;
+            cursor: pointer;
+            font: 12px "微软雅黑";
+            margin: 0;
+            width: 53px;
+            height: 20px;
+            line-height: 20px;
+            border: none;
+            text-align: center;
+            position: fixed;
+            z-index: 2147483647;
+            background-color: #27A9D8;
+            color: #FFF;
+        }
+
+        #picinpicBtn:hover {
+            visibility: visible;
+            opacity: 1;
+            background-color: #2774D8;
+        }
+
+        #leftFullStackButton {
+            display: none;
+            position: fixed;
+            width: 1px;
+            height: 100vh;
+            top: 0;
+            left: 0;
+            z-index: 2147483647;
+            background: #000;
+        }
+
+        #rightFullStackButton {
+            display: none;
+            position: fixed;
+            width: 1px;
+            height: 100vh;
+            top: 0;
+            right: 0;
+            z-index: 2147483647;
+            background: #000;
+        }
+    </style>
+    <style>
+        .ssBtnDefault {
+            position: absolute;
+            z-index: 100000000;
+            background: none;
+            border: none;
+            outline: none;
+            right: 0;
+            cursor: pointer;
+            width: 26px;
+            height: 26px;
+            margin: 0;
+            padding: 0;
+            top: 8px;
+            right: 8px;
+            opacity: .6;
+            pointer-events: all;
+            transition-duration: .25s
+        }
+
+        .ssBtnDefault:hover {
+            opacity: 1 !important;
+            transition-duration: .25s
+        }
+
+        .ssBtnDefault .fade {
+            transition-duration: 5s;
+            opacity: 0
+        }
+
+        .ssBtnYouTube {
+            background: none;
+            border: none;
+            margin-right: 20px !important;
+            padding-top: 0px !important;
+            width: 25px !important
+        }
+
+        .ytp-embed .ssBtnYouTube {
+            width: 20px !important;
+            margin-right: 15px !important
+        }
+
+        .ssBtnVimeo {
+            height: 2rem !important;
+            width: 2rem !important;
+            margin-top: 8px !important
+        }
+
+        .ssBtnVimeo button {
+            width: 100% !important;
+            height: 100% !important
+        }
+
+        .ssBtnVimeo button svg {
+            width: 19px
+        }
+
+        .ssBtnNetflix {
+            background: none;
+            border: none;
+            cursor: pointer;
+            width: 4rem;
+            margin: 0 .5rem;
+            display: inline-block;
+            flex-shrink: 0
+        }
+
+        .ssBtnNetflix>svg {
+            transform: translateY(-0.3rem)
+        }
+
+        .ssBtnNetflix:hover {
+            transform: scale(1.2);
+            transition-duration: .25s
+        }
+
+        .ssBtnHulu {
+            width: 27px;
+            margin-top: 4px;
+            margin-right: 10px;
+            opacity: .7;
+            cursor: pointer
+        }
+
+        .ssBtnHulu:hover {
+            opacity: 1
+        }
+
+        .ssBtnAmazon {
+            margin-right: 1.5vw;
+            outline: none;
+            cursor: pointer;
+            opacity: .8
+        }
+
+        .ssBtnAmazon:hover {
+            opacity: 1
+        }
+
+        @media(min-width: 1200px) {
+            .ssBtnAmazon {
+                width: 1.6666666667vw;
+                height: 1.6666666667vw
+            }
+        }
+
+        @media(max-width: 1199px) {
+            .ssBtnAmazon {
+                width: 20px;
+                height: 20px
+            }
+        }
+
+        .ssBtnHBO {
+            width: 48px;
+            height: 48px;
+            position: relative;
+            opacity: .7;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center
+        }
+
+        .ssBtnHBO:hover {
+            opacity: 1;
+            transform: scale(1.2)
+        }
+
+        .ssBtnHBO svg {
+            width: 24px;
+            height: 24px
+        }
+
+        .ssBtnDisney {
+            opacity: .7
+        }
+
+        .ssBtnDisney:hover {
+            opacity: 1
+        }
+
+        .ssBtnDisney svg {
+            width: 25px !important;
+            height: 31px !important;
+            padding-top: 4px;
+            margin-right: 7px
+        }
+
+        .ssBtnApple {
+            cursor: pointer;
+            opacity: .7
+        }
+
+        .ssBtnApple:hover {
+            opacity: 1
+        }
+
+        .ssBtnApple svg {
+            width: 22px !important;
+            height: 22px !important;
+            margin-right: 2px !important
+        }
+
+        body #ssTempHolder {
+            position: fixed;
+            z-index: 1000000000000;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            pointer-events: none
+        }
+
+        body #ssTempHolder video {
+            width: auto !important;
+            height: auto !important;
+            max-width: 100% !important;
+            max-height: 100% !important;
+            top: 0 !important;
+            left: 0 !important;
+            transform: none !important
+        }
+
+        body.ssTakeScreenshot .ssElement {
+            z-index: 100000000000 !important
+        }
+
+        body.ssTakeScreenshot.ssNetflix [data-uia=video-canvas] {
+            z-index: 10000000
+        }
+
+        body.ssTakeScreenshot.ssNetflix video {
+            background-color: #000
+        }
+
+        body.ssTakeScreenshot.ssNetflix .player-timedtext {
+            display: none !important
+        }
+
+        body.ssTakeScreenshot.ssNetflix.showSubs .player-timedtext {
+            display: block !important
+        }
+
+        body.ssTakeScreenshot.ssAmazon .scalingVideoContainer {
+            z-index: 99999999 !important
+        }
+
+        body.ssTakeScreenshot.ssDisney .btm-media-overlays-container {
+            display: none
+        }
+
+        body.ssTakeScreenshot.ssDisney .dss-hls-subtitle-overlay {
+            display: none
+        }
+
+        body.ssTakeScreenshot.ssDisney.showSubs .dss-hls-subtitle-overlay {
+            display: block
+        }
+
+        body.ssTakeScreenshot.ssHulu .ContentPlayer__contentArea {
+            z-index: 10000000000;
+            position: relative
+        }
+
+        body.ssTakeScreenshot.ssHulu .ClosedCaption {
+            display: none
+        }
+
+        body.ssTakeScreenshot.ssHulu.showSubs .ClosedCaption {
+            display: block
+        }
+
+        body.ssTakeScreenshot.ssHulu.showSubs .ClosedCaption .ClosedCaption__outband {
+            bottom: 30px !important
+        }
+
+        body.ssTakeScreenshot.ssHBO video {
+            z-index: 99999999
+        }
+
+        body.ssTakeScreenshot.ssHBO *:has(video) {
+            z-index: 99999999
+        }
+
+        body.ssTakeScreenshot.ssYoutube .html5-video-container,
+        body.ssTakeScreenshot.ssYoutube .ytp-caption-window-container {
+            z-index: 999999999 !important
+        }
+
+        body.ssTakeScreenshot.ssApple #apple-music-video-player {
+            z-index: 999999999 !important
+        }
+
+        body.ssTakeScreenshot.ssApple .scrim {
+            display: none
+        }
+
+        body .ssWrapper {
+            overflow: hidden
+        }
+
+        body .ssNotification {
+            display: flex;
+            width: 100%;
+            height: 4rem;
+            justify-content: center;
+            align-items: center;
+            position: fixed;
+            z-index: 1000000000;
+            top: -4rem;
+            animation-name: notification;
+            animation-duration: 2s;
+            animation-iteration-count: 1
+        }
+
+        @keyframes notification {
+            0% {
+                top: -4rem
+            }
+
+            25% {
+                top: 3rem
+            }
+
+            85% {
+                top: 3rem
+            }
+        }
+
+        body .ssNotification .ssNContent {
+            position: absolute;
+            z-index: 1000000000;
+            padding: .75rem 1.25em;
+            margin-bottom: 1em;
+            border: 1px solid rgba(0, 0, 0, 0);
+            border-radius: .25em;
+            font-size: 12px;
+            height: fit-content;
+            top: 0
+        }
+
+        body .ssNotification .ssNContent.success {
+            background-color: #d4edda;
+            border-color: #c3e6cb;
+            color: #155724
+        }
+
+        body .ssNotification .ssNContent.fail {
+            background-color: #edd4d4;
+            border-color: #e6c3c3;
+            color: #b62424
+        }
+
+        body .ssModal {
+            display: none;
+            position: fixed;
+            z-index: 100000000;
+            right: 20px;
+            opacity: 0;
+            background-color: #fffefa;
+            border-radius: 3px;
+            padding: 25px;
+            color: #525252;
+            font-family: muli, sans-serif;
+            box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, .15);
+            animation-name: animateOn;
+            animation-duration: .2s;
+            animation-fill-mode: forwards
+        }
+
+        body .ssModal.visible {
+            display: block
+        }
+
+        body .ssModal * {
+            vertical-align: middle;
+            line-height: normal;
+            font-weight: normal
+        }
+
+        @keyframes animateOn {
+            from {
+                opacity: 0;
+                top: 0px
+            }
+
+            to {
+                opacity: 1;
+                top: 20px
+            }
+        }
+
+        body .ssModal .close {
+            position: absolute;
+            right: 10px;
+            top: 10px;
+            cursor: pointer;
+            opacity: .5;
+            background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDI3LjAuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPgo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IgoJIHZpZXdCb3g9IjAgMCA0NDMuNCA0NDMuNCIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgNDQzLjQgNDQzLjQ7IiB4bWw6c3BhY2U9InByZXNlcnZlIj4KPHBhdGggZD0iTTYuOCw0MDMuNWwxODEuOC0xODEuOEw2LjgsMzkuOWMtNS45LTUuOS04LjItMTQuNS02LTIyLjZDMyw5LjIsOS4yLDMsMTcuMywwLjhjOC4xLTIuMiwxNi43LDAuMSwyMi42LDZsMTgxLjgsMTgxLjgKCUw0MDMuNSw2LjhjNS45LTUuOSwxNC41LTguMiwyMi42LTZjOC4xLDIuMiwxNC40LDguNCwxNi41LDE2LjVjMi4yLDguMS0wLjEsMTYuNy02LDIyLjZMMjU0LjcsMjIxLjdsMTgxLjgsMTgxLjgKCWM1LjksNS45LDguMiwxNC41LDYsMjIuNmMtMi4yLDguMS04LjQsMTQuNC0xNi41LDE2LjVjLTguMSwyLjItMTYuNy0wLjEtMjIuNi02TDIyMS43LDI1NC43TDM5LjksNDM2LjVjLTUuOSw1LjktMTQuNSw4LjItMjIuNiw2CglDOS4yLDQ0MC40LDMsNDM0LjEsMC44LDQyNkMtMS40LDQxOCwwLjksNDA5LjQsNi44LDQwMy41TDYuOCw0MDMuNXoiLz4KPC9zdmc+Cg==);
+            width: 10px;
+            height: 10px
+        }
+
+        body .ssModal .ssButtons {
+            margin-top: 25px;
+            text-align: right
+        }
+
+        body .ssModal .ssButtons .ssButton,
+        body .ssModal .ssButtons a .ssButton {
+            display: inline-block;
+            height: 20px;
+            padding: 3px 12px 3px;
+            margin-left: 14px;
+            border-radius: 4px;
+            box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, .15);
+            background-color: #fff;
+            font-size: 12px;
+            color: #525252;
+            line-height: 20px;
+            font-weight: normal;
+            cursor: pointer;
+            text-decoration: none
+        }
+
+        body .ssModal .ssButtons .ssButton .emoji,
+        body .ssModal .ssButtons a .ssButton .emoji {
+            font-size: 15px;
+            vertical-align: bottom
+        }
+
+        body .ssModal .ssButtons .ssButton.blue,
+        body .ssModal .ssButtons a .ssButton.blue {
+            background-color: #19acef;
+            color: #fff
+        }
+
+        body .ssModal .icon {
+            background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDI1LjIuMywgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPgo8c3ZnIHZlcnNpb249IjEuMSIKCSBpZD0iTGF5ZXJfMSIgeG1sbnM6Y2M9Imh0dHA6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL25zIyIgeG1sbnM6ZGM9Imh0dHA6Ly9wdXJsLm9yZy9kYy9lbGVtZW50cy8xLjEvIiB4bWxuczppbmtzY2FwZT0iaHR0cDovL3d3dy5pbmtzY2FwZS5vcmcvbmFtZXNwYWNlcy9pbmtzY2FwZSIgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIiB4bWxuczpzb2RpcG9kaT0iaHR0cDovL3NvZGlwb2RpLnNvdXJjZWZvcmdlLm5ldC9EVEQvc29kaXBvZGktMC5kdGQiIHhtbG5zOnN2Zz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciCgkgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiIHZpZXdCb3g9IjAgMCAxMDAgODMuOSIKCSBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCAxMDAgODMuOTsiIHhtbDpzcGFjZT0icHJlc2VydmUiPgo8c3R5bGUgdHlwZT0idGV4dC9jc3MiPgoJLnN0MHtmaWxsOiMwMEFERUY7fQo8L3N0eWxlPgo8ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgwLC05NTIuMzYyMTgpIj4KCTxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik0zNS42LDk1Mi40Yy0xLjMsMC0yLjQsMS0yLjksMS44bC01LjYsMTEuMUgxMWMtNiwwLTExLDUtMTEsMTF2NDljMCw2LDUsMTEsMTEsMTFoNzhjNiwwLDExLTUsMTEtMTF2LTQ5CgkJYzAtNi01LTExLTExLTExSDcyLjlsLTUuNi0xMS4xYy0wLjUtMS4xLTEuNi0xLjgtMi45LTEuOEwzNS42LDk1Mi40TDM1LjYsOTUyLjR6IE0zNy42LDk1OC44aDI1LjJsNS41LDExLjEKCQljMC41LDEuMSwxLjYsMS44LDIuOSwxLjhoMTguMWMyLjYsMCw0LjUsMS45LDQuNSw0LjV2NDljMCwyLjYtMS45LDQuNS00LjUsNC41SDExLjFjLTIuNiwwLTQuNS0xLjktNC41LTQuNXYtNDkKCQljMC0yLjYsMS45LTQuNSw0LjUtNC41aDE4LjFjMS4xLDAsMi40LTAuOCwyLjktMS44TDM3LjYsOTU4Ljh6IE01MC4yLDk3OS44Yy0xMS42LDAtMjEsOS40LTIxLDIxczkuNCwyMSwyMSwyMXMyMS05LjQsMjEtMjEKCQlTNjEuOCw5NzkuOCw1MC4yLDk3OS44eiBNNTAuMiw5ODYuMmM4LjEsMCwxNC41LDYuNSwxNC41LDE0LjVzLTYuNSwxNC41LTE0LjUsMTQuNXMtMTQuNS02LjUtMTQuNS0xNC41UzQyLjEsOTg2LjIsNTAuMiw5ODYuMnoiLz4KPC9nPgo8L3N2Zz4K);
+            background-repeat: no-repeat;
+            width: 30px;
+            height: 30px;
+            vertical-align: top;
+            margin-right: 22px;
+            margin-top: 2px;
+            display: inline-block
+        }
+
+        body .ssModal .body {
+            display: inline-block;
+            width: 315px
+        }
+
+        body .ssModal .body .title {
+            font-size: 15px;
+            font-weight: 600;
+            margin-bottom: 7px
+        }
+
+        body .ssModal .body .description {
+            font-size: 13px;
+            font-weight: lighter
+        }
+
+        /*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8uL3Njc3MvU2NyZWVuc2hvdENvbnRyb2wvX2J1dHRvbnMuc2NzcyIsIndlYnBhY2s6Ly8uL3Njc3MvU2NyZWVuc2hvdENvbnRyb2wuc2NzcyIsIndlYnBhY2s6Ly8uL3Njc3MvU2NyZWVuc2hvdENvbnRyb2wvX25vdGlmaWNhdGlvbnMuc2NzcyIsIndlYnBhY2s6Ly8uL3Njc3MvU2NyZWVuc2hvdENvbnRyb2wvX21vZGFsLnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUEsY0FFQyxpQkFBQSxDQUNBLGlCQUFBLENBQ0EsZUFBQSxDQUNBLFdBQUEsQ0FDQSxZQUFBLENBQ0EsT0FBQSxDQUNBLGNBQUEsQ0FFQSxVQUFBLENBQ0EsV0FBQSxDQUNBLFFBQUEsQ0FDQSxTQUFBLENBQ0EsT0FBQSxDQUNBLFNBQUEsQ0FFQSxVQUFBLENBQ0Esa0JBQUEsQ0FFRyx3QkFBQSxDQUVBLG9CQUNJLG9CQUFBLENBQ0Esd0JBQUEsQ0FHSixvQkFDSSxzQkFBQSxDQUNBLFNBQUEsQ0FRUixjQUVDLGVBQUEsQ0FDQSxXQUFBLENBRUEsNEJBQUEsQ0FDRywwQkFBQSxDQUNBLHFCQUFBLENBRUgseUJBQ0MscUJBQUEsQ0FDQSw0QkFBQSxDQUlGLFlBRUMsc0JBQUEsQ0FDRyxxQkFBQSxDQUVBLHlCQUFBLENBRUgsbUJBRUMscUJBQUEsQ0FDQSxzQkFBQSxDQUVBLHVCQUNDLFVBQUEsQ0FNSCxjQUNDLGVBQUEsQ0FDQSxXQUFBLENBQ0EsY0FBQSxDQUVBLFVBQUEsQ0FFQSxjQUFBLENBR0Esb0JBQUEsQ0FDQSxhQUFBLENBVUEsa0JBRUMsNkJBQUEsQ0FJRSxvQkFDSSxvQkFBQSxDQUNILHdCQUFBLENBSUwsV0FFQyxVQUFBLENBQ0EsY0FBQSxDQUNBLGlCQUFBLENBQ0EsVUFBQSxDQUNBLGNBQUEsQ0FFQSxpQkFDQyxTQUFBLENBSUYsYUFDQyxrQkFBQSxDQUVBLFlBQUEsQ0FFRSxjQUFBLENBQ0EsVUFBQSxDQUlDLG1CQUNJLFNBQUEsQ0FJUiwwQkFBQSxhQUFBLG9CQUFBLENBQUEscUJBQUEsQ0FBQSxDQUNBLDBCQUFBLGFBQUEsVUFBQSxDQUFBLFdBQUEsQ0FBQSxDQUdBLFVBRUksVUFBQSxDQUNBLFdBQUEsQ0FDQSxpQkFBQSxDQUNBLFVBQUEsQ0FDQSxjQUFBLENBQ0EsWUFBQSxDQUNBLHNCQUFBLENBQ0Esa0JBQUEsQ0FFSCxnQkFDQyxTQUFBLENBQ0Esb0JBQUEsQ0FHRCxjQUNDLFVBQUEsQ0FDQSxXQUFBLENBSUYsYUFHSSxVQUFBLENBRUgsbUJBQ0MsU0FBQSxDQUdELGlCQUNDLHFCQUFBLENBQ0Esc0JBQUEsQ0FDQSxlQUFBLENBQ0EsZ0JBQUEsQ0FJRixZQUlDLGNBQUEsQ0FHRyxVQUFBLENBRUgsa0JBQ0MsU0FBQSxDQUdELGdCQUNDLHFCQUFBLENBQ0Esc0JBQUEsQ0FDQSwyQkFBQSxDQzNMRCxtQkFDQyxjQUFBLENBQ0EscUJBQUEsQ0FDQSxVQUFBLENBQ0EsV0FBQSxDQUNBLEtBQUEsQ0FDQSxtQkFBQSxDQUVBLHlCQUNDLHFCQUFBLENBQ0Esc0JBQUEsQ0FDQSx5QkFBQSxDQUNBLDBCQUFBLENBQ0EsZ0JBQUEsQ0FDQSxpQkFBQSxDQUNBLHlCQUFBLENBTUQsaUNBQ0MsK0JBQUEsQ0FLQSx3REFDQyxnQkFBQSxDQUdELHNDQUNDLHFCQUFBLENBSUQsa0RBRUMsdUJBQUEsQ0FLQSwyREFFQyx3QkFBQSxDQVFGLHNEQUNDLDJCQUFBLENBTUQsNkRBQ0MsWUFBQSxDQUdELHlEQUNDLFlBQUEsQ0FLQSxrRUFDQyxhQUFBLENBTUYseURBQ0MsbUJBQUEsQ0FDRyxpQkFBQSxDQUdKLDRDQUNDLFlBQUEsQ0FJQSxxREFDQyxhQUFBLENBRUEsNkVBQ0Msc0JBQUEsQ0FRSCxrQ0FDQyxnQkFBQSxDQUdELHlDQUNDLGdCQUFBLENBT0QscUhBQ0MsNEJBQUEsQ0FLRCx3REFDQyw0QkFBQSxDQUdELHFDQUNDLFlBQUEsQ0FLSCxnQkFDQyxlQUFBLENDcElGLHFCQUVJLFlBQUEsQ0FDQSxVQUFBLENBQ0EsV0FBQSxDQUNBLHNCQUFBLENBQ0Esa0JBQUEsQ0FDQSxjQUFBLENBQ0Esa0JBQUEsQ0FDQSxTQUFBLENBRUEsMkJBQUEsQ0FDQSxxQkFBQSxDQUNBLDJCQUFBLENBRUEsd0JBQ0ksR0FBQSxTQUFBLENBQ0EsSUFBQSxRQUFBLENBQ0EsSUFBQSxRQUFBLENBQUEsQ0FHSixpQ0FFSSxpQkFBQSxDQUNBLGtCQUFBLENBQ0EscUJBQUEsQ0FDQSxpQkFBQSxDQUNBLDhCQUFBLENBQ0EsbUJBQUEsQ0FDQSxjQUFBLENBQ0Esa0JBQUEsQ0FDQSxLQUFBLENBRUEseUNBQ0ksd0JBQUEsQ0FDQSxvQkFBQSxDQUNBLGFBQUEsQ0FHSixzQ0FDSSx3QkFBQSxDQUNBLG9CQUFBLENBQ0EsYUFBQSxDQzFDWixjQUVJLFlBQUEsQ0FNQSxjQUFBLENBQ0EsaUJBQUEsQ0FFQSxVQUFBLENBRUEsU0FBQSxDQUVBLHdCQUFBLENBQ0EsaUJBQUEsQ0FFQSxZQUFBLENBRUEsYUFBQSxDQUNBLDJCQUFBLENBUUEsMENBQUEsQ0FFQSx3QkFBQSxDQUNBLHNCQUFBLENBQ0EsNEJBQUEsQ0E3QkEsc0JBQ0ksYUFBQSxDQWtCSixnQkFDSSxxQkFBQSxDQUNBLGtCQUFBLENBQ0Esa0JBQUEsQ0FTSixxQkFDSSxLQUNJLFNBQUEsQ0FDQSxPQUFBLENBRUosR0FDSSxTQUFBLENBQ0EsUUFBQSxDQUFBLENBSVIscUJBQ0ksaUJBQUEsQ0FDQSxVQUFBLENBQ0EsUUFBQSxDQUNBLGNBQUEsQ0FDQSxVQUFBLENBRUEsd0RBQUEsQ0FFQSxVQUFBLENBQ0EsV0FBQSxDQUlKLHlCQUVJLGVBQUEsQ0FDQSxnQkFBQSxDQUVBLHdFQUNJLG9CQUFBLENBRUEsV0FBQSxDQUVBLG9CQUFBLENBQ0EsZ0JBQUEsQ0FFQSxpQkFBQSxDQUNBLDBDQUFBLENBQ0EscUJBQUEsQ0FFQSxjQUFBLENBQ0EsYUFBQSxDQUNBLGdCQUFBLENBQ0Esa0JBQUEsQ0FFQSxjQUFBLENBRUEsb0JBQUEsQ0FFQSxzRkFDSSxjQUFBLENBQ0EscUJBQUEsQ0FHSixrRkFDSSx3QkFBQSxDQUNBLFVBQUEsQ0FLWixvQkFDSSx3REFBQSxDQUNBLDJCQUFBLENBRUEsVUFBQSxDQUNBLFdBQUEsQ0FFQSxrQkFBQSxDQUNBLGlCQUFBLENBQ0EsY0FBQSxDQUVBLG9CQUFBLENBR0osb0JBRUksb0JBQUEsQ0FDQSxXQUFBLENBRUEsMkJBQ0ksY0FBQSxDQUNBLGVBQUEsQ0FDQSxpQkFBQSxDQUVKLGlDQUNJLGNBQUEsQ0FDQSxtQkFBQSIsInNvdXJjZXNDb250ZW50IjpbIi5zc0J0bkRlZmF1bHQge1xuXHRcblx0cG9zaXRpb246IGFic29sdXRlO1xuXHR6LWluZGV4OiAxMDAwMDAwMDA7XG5cdGJhY2tncm91bmQ6bm9uZTtcblx0Ym9yZGVyOiBub25lO1xuXHRvdXRsaW5lOiBub25lO1xuXHRyaWdodDowO1xuXHRjdXJzb3I6IHBvaW50ZXI7XG5cdFxuXHR3aWR0aDogMjZweDtcblx0aGVpZ2h0OiAyNnB4O1xuXHRtYXJnaW46IDA7Ly81JSA4cHggMDtcblx0cGFkZGluZzowO1xuXHR0b3A6OHB4O1xuXHRyaWdodDo4cHg7XG5cdFxuXHRvcGFjaXR5OiAuNjtcblx0cG9pbnRlci1ldmVudHM6IGFsbDtcblx0Lyp0cmFuc2l0aW9uLWZpbGwtbW9kZTogZm9yd2FyZHM7Ki9cbiAgICB0cmFuc2l0aW9uLWR1cmF0aW9uOiAuMjVzO1xuXG4gICAgJjpob3ZlciB7XG4gICAgICAgIG9wYWNpdHk6IDEgIWltcG9ydGFudDsgXG4gICAgICAgIHRyYW5zaXRpb24tZHVyYXRpb246IC4yNXM7XG4gICAgfVxuXG4gICAgLmZhZGUge1xuICAgICAgICB0cmFuc2l0aW9uLWR1cmF0aW9uOiA1cztcbiAgICAgICAgb3BhY2l0eTogMDtcbiAgICB9XG4gICAgXG4gICAgLypzdmcge1xuICAgICAgICBiYWNrZ3JvdW5kLWNvbG9yOnJlZDtcbiAgICB9Ki9cbn1cblxuLnNzQnRuWW91VHViZSB7XG5cblx0YmFja2dyb3VuZDpub25lO1xuXHRib3JkZXI6IG5vbmU7XG5cdFxuXHRtYXJnaW4tcmlnaHQ6IDIwcHggIWltcG9ydGFudDtcbiAgICBwYWRkaW5nLXRvcDogMHB4ICFpbXBvcnRhbnQ7XG4gICAgd2lkdGg6IDI1cHggIWltcG9ydGFudDtcblxuXHQueXRwLWVtYmVkICYge1xuXHRcdHdpZHRoOiAyMHB4ICFpbXBvcnRhbnQ7XG5cdFx0bWFyZ2luLXJpZ2h0OiAxNXB4ICFpbXBvcnRhbnQ7XG5cdH1cbn1cblxuLnNzQnRuVmltZW8ge1xuXG5cdGhlaWdodDogMnJlbSAhaW1wb3J0YW50O1xuICAgIHdpZHRoOiAycmVtICFpbXBvcnRhbnQ7XG4gICAgLy9wYWRkaW5nOiA2cHggIWltcG9ydGFudDtcbiAgICBtYXJnaW4tdG9wOiA4cHggIWltcG9ydGFudDtcblxuXHRidXR0b24ge1xuXG5cdFx0d2lkdGg6IDEwMCUgIWltcG9ydGFudDtcblx0XHRoZWlnaHQ6IDEwMCUgIWltcG9ydGFudDtcblx0XHRcblx0XHRzdmcge1xuXHRcdFx0d2lkdGg6IDE5cHg7XG5cdFx0fVxuXHR9XG5cbn1cblxuLnNzQnRuTmV0ZmxpeCB7XG5cdGJhY2tncm91bmQ6bm9uZTtcblx0Ym9yZGVyOiBub25lO1xuXHRjdXJzb3I6IHBvaW50ZXI7XG5cblx0d2lkdGg6NHJlbTtcblx0XG5cdG1hcmdpbjogMCAwLjVyZW07XG5cdC8vbWFyZ2luOiAwIDJyZW0gMCA0cmVtO1xuXG5cdGRpc3BsYXk6aW5saW5lLWJsb2NrO1xuXHRmbGV4LXNocmluazogMDtcblx0XG5cdC8vbWFyZ2luLXRvcDotMXJlbTtcblx0Ly9oZWlnaHQ6Mi40cmVtO1xuXHQvL3dpZHRoOiA1MHB4O1xuXHQvL2hlaWdodDogMzVweCAhaW1wb3J0YW50O1xuXHQvL3dpZHRoOiAxMDAlOy8vMy42ZW0gIWltcG9ydGFudDtcbiAgICAvL2hlaWdodDogMTAwJTsvLzEuNmVtICFpbXBvcnRhbnQ7XG5cdC8vcGFkZGluZzowIDAgLjZlbSAwO1xuXG5cdCYgPiBzdmcge1xuXHRcdC8vbWFyZ2luLXRvcDotLjNyZW07XG5cdFx0dHJhbnNmb3JtOnRyYW5zbGF0ZVkoLS4zcmVtKTtcblx0XHQvL3RyYW5zZm9ybTogc2NhbGUoLjUpO1xuXHR9XG4gICAgXG4gICAgJjpob3ZlciB7XG4gICAgICAgIHRyYW5zZm9ybTpzY2FsZSgxLjIpO1xuXHQgICAgdHJhbnNpdGlvbi1kdXJhdGlvbjogLjI1cztcbiAgICB9XG59XG5cbi5zc0J0bkh1bHUge1xuXHRcblx0d2lkdGg6IDI3cHg7XG5cdG1hcmdpbi10b3A6IDRweDtcblx0bWFyZ2luLXJpZ2h0OjEwcHg7XG5cdG9wYWNpdHk6IC43O1xuXHRjdXJzb3I6IHBvaW50ZXI7XG5cdFxuXHQmOmhvdmVyIHtcblx0XHRvcGFjaXR5OiAxO1xuXHR9XG59XG5cbi5zc0J0bkFtYXpvbiB7XG5cdG1hcmdpbi1yaWdodDogMS41dnc7XG4gICAgXG5cdG91dGxpbmU6IG5vbmU7XG5cdFxuICAgY3Vyc29yOiBwb2ludGVyO1xuICAgb3BhY2l0eTogLjg7XG5cbiAgIC8vei1pbmRleDogOTk5OTk5OTk5OTtcblxuICAgICY6aG92ZXIge1xuICAgICAgICBvcGFjaXR5OiAxO1xuICAgIH1cbn1cblxuQG1lZGlhIChtaW4td2lkdGg6IDEyMDBweCkgeyAuc3NCdG5BbWF6b24geyB3aWR0aDogMS42NjY2NjY2NjY2NjY2NjY1dnc7IGhlaWdodDogMS42NjY2NjY2NjY2NjY2NjY1dnc7IH0gfVxuQG1lZGlhIChtYXgtd2lkdGg6IDExOTlweCkgeyAuc3NCdG5BbWF6b24geyB3aWR0aDogMjBweDsgaGVpZ2h0OiAyMHB4OyB9IH1cblxuXG4uc3NCdG5IQk8ge1xuXG4gICAgd2lkdGg6IDQ4cHg7XG4gICAgaGVpZ2h0OiA0OHB4O1xuICAgIHBvc2l0aW9uOiByZWxhdGl2ZTtcbiAgICBvcGFjaXR5OiAwLjc7XG4gICAgY3Vyc29yOiBwb2ludGVyO1xuICAgIGRpc3BsYXk6IGZsZXg7XG4gICAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7XG4gICAgYWxpZ24taXRlbXM6IGNlbnRlcjtcblxuXHQmOmhvdmVyIHtcblx0XHRvcGFjaXR5OiAxO1xuXHRcdHRyYW5zZm9ybTogc2NhbGUoMS4yKTtcblx0fVxuXG5cdHN2ZyB7XG5cdFx0d2lkdGg6IDI0cHg7XG5cdFx0aGVpZ2h0OiAyNHB4O1xuXHR9XG59XG5cbi5zc0J0bkRpc25leSB7XG5cdC8vd2lkdGg6IDI2cHg7XG4gICAgLy9tYXJnaW4tcmlnaHQ6IDEzcHg7XG4gICAgb3BhY2l0eTogLjc7XG5cblx0Jjpob3ZlciB7XG5cdFx0b3BhY2l0eTogMTtcblx0fVxuXG5cdHN2ZyB7XG5cdFx0d2lkdGg6IDI1cHggIWltcG9ydGFudDtcblx0XHRoZWlnaHQ6IDMxcHggIWltcG9ydGFudDtcblx0XHRwYWRkaW5nLXRvcDogNHB4O1xuXHRcdG1hcmdpbi1yaWdodDogN3B4O1xuXHR9XG59XG5cbi5zc0J0bkFwcGxlIHtcblx0Ly93aWR0aDogMjZweDtcbiAgICAvL21hcmdpbi1yaWdodDogMTNweDtcblxuXHRjdXJzb3I6IHBvaW50ZXI7XG5cblxuICAgIG9wYWNpdHk6IC43O1xuXG5cdCY6aG92ZXIge1xuXHRcdG9wYWNpdHk6IDE7XG5cdH1cblxuXHRzdmcge1xuXHRcdHdpZHRoOiAyMnB4ICFpbXBvcnRhbnQ7XG5cdFx0aGVpZ2h0OiAyMnB4ICFpbXBvcnRhbnQ7XG5cdFx0bWFyZ2luLXJpZ2h0OiAycHggIWltcG9ydGFudDtcblx0fVxufSIsIkBpbXBvcnQgXCJTY3JlZW5zaG90Q29udHJvbC9idXR0b25zXCI7XG5cbmJvZHkge1xuXG5cdCNzc1RlbXBIb2xkZXIge1xuXHRcdHBvc2l0aW9uOmZpeGVkO1xuXHRcdHotaW5kZXg6MTAwMDAwMDAwMDAwMDtcblx0XHR3aWR0aDoxMDAlO1xuXHRcdGhlaWdodDoxMDAlO1xuXHRcdHRvcDowO1xuXHRcdHBvaW50ZXItZXZlbnRzOiBub25lO1xuXG5cdFx0dmlkZW8ge1xuXHRcdFx0d2lkdGg6YXV0byAhaW1wb3J0YW50O1xuXHRcdFx0aGVpZ2h0OmF1dG8gIWltcG9ydGFudDtcblx0XHRcdG1heC13aWR0aDoxMDAlICFpbXBvcnRhbnQ7XG5cdFx0XHRtYXgtaGVpZ2h0OiAxMDAlICFpbXBvcnRhbnQ7XG5cdFx0XHR0b3A6IDAgIWltcG9ydGFudDtcblx0XHRcdGxlZnQ6IDAgIWltcG9ydGFudDtcblx0XHRcdHRyYW5zZm9ybTogbm9uZSAhaW1wb3J0YW50O1xuXHRcdH1cblx0fVxuXG5cdCYuc3NUYWtlU2NyZWVuc2hvdCB7XG5cdFx0XG5cdFx0LnNzRWxlbWVudCB7XG5cdFx0XHR6LWluZGV4OiAxMDAwMDAwMDAwMDAgIWltcG9ydGFudDtcblx0XHR9XG5cdFx0XG5cdFx0Ji5zc05ldGZsaXgge1xuXHRcblx0XHRcdFtkYXRhLXVpYT12aWRlby1jYW52YXNdIHtcblx0XHRcdFx0ei1pbmRleDogMTAwMDAwMDA7XG5cdFx0XHR9XG5cdFx0XHRcblx0XHRcdHZpZGVvIHtcblx0XHRcdFx0YmFja2dyb3VuZC1jb2xvcjogIzAwMDAwMDtcblx0XHRcdFx0Ly9oZWlnaHQ6IGF1dG8gIWltcG9ydGFudDtcblx0XHRcdH1cblxuXHRcdFx0LnBsYXllci10aW1lZHRleHQge1xuXG5cdFx0XHRcdGRpc3BsYXk6bm9uZSAhaW1wb3J0YW50O1xuXHRcdFx0fVx0XHRcdFxuXG5cdFx0XHQmLnNob3dTdWJzIHtcblx0XHRcdFx0XG5cdFx0XHRcdC5wbGF5ZXItdGltZWR0ZXh0IHtcblxuXHRcdFx0XHRcdGRpc3BsYXk6IGJsb2NrICFpbXBvcnRhbnQ7XG5cdFx0XHRcdFx0Ly9ib3R0b206IDEwJSAhaW1wb3J0YW50O1xuXHRcdFx0XHR9XG5cdFx0XHR9XG5cdFx0fVxuXG5cdFx0Ji5zc0FtYXpvbiB7XG5cblx0XHRcdC5zY2FsaW5nVmlkZW9Db250YWluZXIge1xuXHRcdFx0XHR6LWluZGV4OiA5OTk5OTk5OSAhaW1wb3J0YW50O1xuXHRcdFx0fVxuXHRcdH1cblxuXHRcdCYuc3NEaXNuZXkge1xuXG5cdFx0XHQuYnRtLW1lZGlhLW92ZXJsYXlzLWNvbnRhaW5lciB7XG5cdFx0XHRcdGRpc3BsYXk6bm9uZTtcblx0XHRcdH1cblxuXHRcdFx0LmRzcy1obHMtc3VidGl0bGUtb3ZlcmxheSB7XG5cdFx0XHRcdGRpc3BsYXk6IG5vbmU7XG5cdFx0XHR9XG5cblx0XHRcdCYuc2hvd1N1YnMge1xuXHRcdFx0XHRcblx0XHRcdFx0LmRzcy1obHMtc3VidGl0bGUtb3ZlcmxheSB7XG5cdFx0XHRcdFx0ZGlzcGxheTogYmxvY2s7XG5cdFx0XHRcdH1cblx0XHRcdH1cblx0XHR9XG5cblx0XHQmLnNzSHVsdSB7XG5cdFx0XHQuQ29udGVudFBsYXllcl9fY29udGVudEFyZWEge1xuXHRcdFx0XHR6LWluZGV4OiAxMDAwMDAwMDAwMDtcbiAgICBcdFx0XHRwb3NpdGlvbjogcmVsYXRpdmU7XG5cdFx0XHR9XG5cblx0XHRcdC5DbG9zZWRDYXB0aW9uIHtcblx0XHRcdFx0ZGlzcGxheTpub25lO1xuXHRcdFx0fVxuXG5cdFx0XHQmLnNob3dTdWJzIHtcblx0XHRcdFx0LkNsb3NlZENhcHRpb24ge1xuXHRcdFx0XHRcdGRpc3BsYXk6YmxvY2s7XG5cblx0XHRcdFx0XHQuQ2xvc2VkQ2FwdGlvbl9fb3V0YmFuZCB7XG5cdFx0XHRcdFx0XHRib3R0b206IDMwcHggIWltcG9ydGFudDtcblx0XHRcdFx0XHR9XG5cdFx0XHRcdH1cblx0XHRcdH1cblx0XHR9XG5cblx0XHQmLnNzSEJPIHtcblxuXHRcdFx0dmlkZW8ge1xuXHRcdFx0XHR6LWluZGV4OiA5OTk5OTk5OTtcblx0XHRcdH1cblxuXHRcdFx0KjpoYXModmlkZW8pIHtcblx0XHRcdFx0ei1pbmRleDogOTk5OTk5OTk7XG5cdFx0XHR9XG5cblx0XHR9XG5cblx0XHQmLnNzWW91dHViZSB7XG5cblx0XHRcdC5odG1sNS12aWRlby1jb250YWluZXIsIC55dHAtY2FwdGlvbi13aW5kb3ctY29udGFpbmVyIHtcblx0XHRcdFx0ei1pbmRleDogOTk5OTk5OTk5ICFpbXBvcnRhbnQ7XG5cdFx0XHR9XG5cdFx0fVxuXG5cdFx0Ji5zc0FwcGxlIHtcblx0XHRcdCNhcHBsZS1tdXNpYy12aWRlby1wbGF5ZXIge1xuXHRcdFx0XHR6LWluZGV4OiA5OTk5OTk5OTkgIWltcG9ydGFudDtcblx0XHRcdH1cblxuXHRcdFx0LnNjcmltIHtcblx0XHRcdFx0ZGlzcGxheTpub25lO1xuXHRcdFx0fVxuXHRcdH1cblx0fVxuXG5cdC5zc1dyYXBwZXIge1xuXHRcdG92ZXJmbG93OiBoaWRkZW47XG5cdH1cblxuXHRAaW1wb3J0IFwiU2NyZWVuc2hvdENvbnRyb2wvbm90aWZpY2F0aW9uc1wiO1xuXHRAaW1wb3J0IFwiU2NyZWVuc2hvdENvbnRyb2wvbW9kYWxcIjtcbn0iLCIuc3NOb3RpZmljYXRpb24ge1xuXG4gICAgZGlzcGxheTogZmxleDtcbiAgICB3aWR0aDogMTAwJTtcbiAgICBoZWlnaHQ6IDRyZW07XG4gICAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7XG4gICAgYWxpZ24taXRlbXM6IGNlbnRlcjtcbiAgICBwb3NpdGlvbjogZml4ZWQ7XG4gICAgei1pbmRleDogMTAwMDAwMDAwMDtcbiAgICB0b3A6LTRyZW07XG5cbiAgICBhbmltYXRpb24tbmFtZTogbm90aWZpY2F0aW9uO1xuICAgIGFuaW1hdGlvbi1kdXJhdGlvbjogMnM7XG4gICAgYW5pbWF0aW9uLWl0ZXJhdGlvbi1jb3VudDogMTtcblxuICAgIEBrZXlmcmFtZXMgbm90aWZpY2F0aW9uIHtcbiAgICAgICAgMCUge3RvcDogLTRyZW07fVxuICAgICAgICAyNSUge3RvcDogM3JlbTt9XG4gICAgICAgIDg1JSB7dG9wOiAzcmVtO31cbiAgICB9XG5cbiAgICAuc3NOQ29udGVudCB7XG4gICAgICAgIC8vY29udGVudDogJ1NjcmVlbnNob3QgY29waWVkIHRvIGNsaXBib2FyZCEnO1xuICAgICAgICBwb3NpdGlvbjogYWJzb2x1dGU7XG4gICAgICAgIHotaW5kZXg6IDEwMDAwMDAwMDA7XG4gICAgICAgIHBhZGRpbmc6IC43NXJlbSAxLjI1ZW07XG4gICAgICAgIG1hcmdpbi1ib3R0b206IDFlbTtcbiAgICAgICAgYm9yZGVyOiAxcHggc29saWQgdHJhbnNwYXJlbnQ7XG4gICAgICAgIGJvcmRlci1yYWRpdXM6IC4yNWVtO1xuICAgICAgICBmb250LXNpemU6IDEycHg7XG4gICAgICAgIGhlaWdodDogZml0LWNvbnRlbnQ7XG4gICAgICAgIHRvcDowO1xuXG4gICAgICAgICYuc3VjY2VzcyB7XG4gICAgICAgICAgICBiYWNrZ3JvdW5kLWNvbG9yOiAjZDRlZGRhO1xuICAgICAgICAgICAgYm9yZGVyLWNvbG9yOiAjYzNlNmNiO1xuICAgICAgICAgICAgY29sb3I6ICMxNTU3MjQ7XG4gICAgICAgIH1cbiAgICBcbiAgICAgICAgJi5mYWlsIHtcbiAgICAgICAgICAgIGJhY2tncm91bmQtY29sb3I6ICNlZGQ0ZDQ7XG4gICAgICAgICAgICBib3JkZXItY29sb3I6ICNlNmMzYzM7XG4gICAgICAgICAgICBjb2xvcjogI2I2MjQyNDtcbiAgICAgICAgfVxuICAgIH1cblxufSIsIi5zc01vZGFsIHtcblxuICAgIGRpc3BsYXk6IG5vbmU7XG5cbiAgICAmLnZpc2libGUge1xuICAgICAgICBkaXNwbGF5OmJsb2NrO1xuICAgIH1cblxuICAgIHBvc2l0aW9uOiBmaXhlZDtcbiAgICB6LWluZGV4OiAxMDAwMDAwMDA7XG5cbiAgICByaWdodDoyMHB4O1xuICAgIFxuICAgIG9wYWNpdHk6IDA7XG5cbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiNmZmZlZmE7XG4gICAgYm9yZGVyLXJhZGl1czogM3B4O1xuXG4gICAgcGFkZGluZzogMjVweDtcblxuICAgIGNvbG9yOiAjNTI1MjUyO1xuICAgIGZvbnQtZmFtaWx5OiBtdWxpLCBzYW5zLXNlcmlmO1xuICAgIFxuICAgICoge1xuICAgICAgICB2ZXJ0aWNhbC1hbGlnbjogbWlkZGxlO1xuICAgICAgICBsaW5lLWhlaWdodDogbm9ybWFsO1xuICAgICAgICBmb250LXdlaWdodDogbm9ybWFsO1xuICAgIH1cblxuICAgIGJveC1zaGFkb3c6IDBweCA0cHggOHB4IDBweCByZ2JhKDAsIDAsIDAsIDAuMTUpO1xuXG4gICAgYW5pbWF0aW9uLW5hbWU6IGFuaW1hdGVPbjtcbiAgICBhbmltYXRpb24tZHVyYXRpb246IC4ycztcbiAgICBhbmltYXRpb24tZmlsbC1tb2RlOiBmb3J3YXJkcztcblxuICAgIEBrZXlmcmFtZXMgYW5pbWF0ZU9uIHtcbiAgICAgICAgZnJvbSB7XG4gICAgICAgICAgICBvcGFjaXR5OiAwO1xuICAgICAgICAgICAgdG9wOiAwcHg7XG4gICAgICAgIH1cbiAgICAgICAgdG8ge1xuICAgICAgICAgICAgb3BhY2l0eTogMTtcbiAgICAgICAgICAgIHRvcDogMjBweDtcbiAgICAgICAgfVxuICAgIH1cblxuICAgIC5jbG9zZSB7XG4gICAgICAgIHBvc2l0aW9uOiBhYnNvbHV0ZTtcbiAgICAgICAgcmlnaHQ6IDEwcHg7XG4gICAgICAgIHRvcDogMTBweDtcbiAgICAgICAgY3Vyc29yOiBwb2ludGVyO1xuICAgICAgICBvcGFjaXR5OiAuNTtcblxuICAgICAgICBiYWNrZ3JvdW5kLWltYWdlOiB1cmwoJy4uL2ltYWdlcy9jbG9zZS5zdmcnKTtcblxuICAgICAgICB3aWR0aDoxMHB4O1xuICAgICAgICBoZWlnaHQ6MTBweDtcblxuICAgIH1cblxuICAgIC5zc0J1dHRvbnMge1xuXG4gICAgICAgIG1hcmdpbi10b3A6IDI1cHg7XG4gICAgICAgIHRleHQtYWxpZ246IHJpZ2h0O1xuXG4gICAgICAgIC5zc0J1dHRvbiwgYSAuc3NCdXR0b24ge1xuICAgICAgICAgICAgZGlzcGxheTppbmxpbmUtYmxvY2s7XG5cbiAgICAgICAgICAgIGhlaWdodDoyMHB4O1xuICAgICAgICAgICAgXG4gICAgICAgICAgICBwYWRkaW5nOjNweCAxMnB4IDNweDtcbiAgICAgICAgICAgIG1hcmdpbi1sZWZ0OiAxNHB4O1xuICAgICAgICAgICAgXG4gICAgICAgICAgICBib3JkZXItcmFkaXVzOiA0cHg7XG4gICAgICAgICAgICBib3gtc2hhZG93OiAwcHggNHB4IDhweCAwcHggcmdiYSgwLCAwLCAwLCAwLjE1KTtcbiAgICAgICAgICAgIGJhY2tncm91bmQtY29sb3I6ICNGRkZGRkY7XG4gICAgICAgICAgICBcbiAgICAgICAgICAgIGZvbnQtc2l6ZTogMTJweDtcbiAgICAgICAgICAgIGNvbG9yOiAjNTI1MjUyO1xuICAgICAgICAgICAgbGluZS1oZWlnaHQ6IDIwcHg7XG4gICAgICAgICAgICBmb250LXdlaWdodDogbm9ybWFsO1xuICAgIFxuICAgICAgICAgICAgY3Vyc29yOiBwb2ludGVyO1xuXG4gICAgICAgICAgICB0ZXh0LWRlY29yYXRpb246IG5vbmU7XG5cbiAgICAgICAgICAgIC5lbW9qaSB7XG4gICAgICAgICAgICAgICAgZm9udC1zaXplOiAxNXB4O1xuICAgICAgICAgICAgICAgIHZlcnRpY2FsLWFsaWduOiBib3R0b207XG4gICAgICAgICAgICB9XG4gICAgXG4gICAgICAgICAgICAmLmJsdWUge1xuICAgICAgICAgICAgICAgIGJhY2tncm91bmQtY29sb3I6ICMxOWFjZWY7XG4gICAgICAgICAgICAgICAgY29sb3I6ICNGRkZGRkY7XG4gICAgICAgICAgICB9XG4gICAgICAgIH1cbiAgICB9XG5cbiAgICAuaWNvbiB7XG4gICAgICAgIGJhY2tncm91bmQtaW1hZ2U6IHVybCgnLi4vaW1hZ2VzL2ljb25CbHVlLnN2ZycpO1xuICAgICAgICBiYWNrZ3JvdW5kLXJlcGVhdDogbm8tcmVwZWF0O1xuXG4gICAgICAgIHdpZHRoOjMwcHg7XG4gICAgICAgIGhlaWdodDozMHB4O1xuXG4gICAgICAgIHZlcnRpY2FsLWFsaWduOiB0b3A7XG4gICAgICAgIG1hcmdpbi1yaWdodDogMjJweDtcbiAgICAgICAgbWFyZ2luLXRvcDoycHg7XG5cbiAgICAgICAgZGlzcGxheTppbmxpbmUtYmxvY2s7XG4gICAgfVxuXG4gICAgLmJvZHkge1xuXG4gICAgICAgIGRpc3BsYXk6aW5saW5lLWJsb2NrO1xuICAgICAgICB3aWR0aDozMTVweDtcblxuICAgICAgICAudGl0bGUge1xuICAgICAgICAgICAgZm9udC1zaXplOiAxNXB4O1xuICAgICAgICAgICAgZm9udC13ZWlnaHQ6IDYwMDtcbiAgICAgICAgICAgIG1hcmdpbi1ib3R0b206IDdweDtcbiAgICAgICAgfVxuICAgICAgICAuZGVzY3JpcHRpb24ge1xuICAgICAgICAgICAgZm9udC1zaXplOiAxM3B4O1xuICAgICAgICAgICAgZm9udC13ZWlnaHQ6IGxpZ2h0ZXI7XG4gICAgICAgIH1cbiAgICB9XG5cbn0iXSwic291cmNlUm9vdCI6IiJ9 */
+    </style>
+    <style type="text/css"
+        data-fbcssmodules="css:fb.css.base css:fb.css.dialog css:fb.css.iframewidget css:fb.css.customer_chat_plugin_iframe">
+        .wbloks_1 {
+            box-sizing: border-box;
+            display: flex;
+            flex: 0 1 auto;
+            flex-direction: row;
+            pointer-events: auto;
+            position: relative;
+            min-height: 0px;
+            min-width: 0px;
+        }
+        .wbloks_77 {
+            color: var(--wbloks-primary-text);
+            flex-direction: column;
+            height: 100%;
+            width: 100%;
+        }
+        .wbloks_51 {
+            padding: 0px;
+            margin: 0px;
+            border: none;
+            box-sizing: border-box;
+            outline: none;
+            width: 100%;
+        }
+        .wbloks_74 * {
+            outline: none;
+            outline-offset: -1px;
+        }
+
+        .fb_hidden {
+            position: absolute;
+            top: -10000px;
+            z-index: 10001
+        }
+
+        .fb_reposition {
+            overflow: hidden;
+            position: relative
+        }
+
+        .fb_invisible {
+            display: none
+        }
+
+        .fb_reset {
+            background: none;
+            border: 0;
+            border-spacing: 0;
+            color: #000;
+            cursor: auto;
+            direction: ltr;
+            font-family: 'lucida grande', tahoma, verdana, arial, sans-serif;
+            font-size: 11px;
+            font-style: normal;
+            font-variant: normal;
+            font-weight: normal;
+            letter-spacing: normal;
+            line-height: 1;
+            margin: 0;
+            overflow: visible;
+            padding: 0;
+            text-align: left;
+            text-decoration: none;
+            text-indent: 0;
+            text-shadow: none;
+            text-transform: none;
+            visibility: visible;
+            white-space: normal;
+            word-spacing: normal
+        }
+
+        .fb_reset>div {
+            overflow: hidden
+        }
+
+        @keyframes fb_transform {
+            from {
+                opacity: 0;
+                transform: scale(.95)
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1)
+            }
+        }
+
+        .fb_animate {
+            animation: fb_transform .3s forwards
+        }
+
+        .fb_hidden {
+            position: absolute;
+            top: -10000px;
+            z-index: 10001
+        }
+
+        .fb_reposition {
+            overflow: hidden;
+            position: relative
+        }
+
+        .fb_invisible {
+            display: none
+        }
+
+        .fb_reset {
+            background: none;
+            border: 0;
+            border-spacing: 0;
+            color: #000;
+            cursor: auto;
+            direction: ltr;
+            font-family: 'lucida grande', tahoma, verdana, arial, sans-serif;
+            font-size: 11px;
+            font-style: normal;
+            font-variant: normal;
+            font-weight: normal;
+            letter-spacing: normal;
+            line-height: 1;
+            margin: 0;
+            overflow: visible;
+            padding: 0;
+            text-align: left;
+            text-decoration: none;
+            text-indent: 0;
+            text-shadow: none;
+            text-transform: none;
+            visibility: visible;
+            white-space: normal;
+            word-spacing: normal
+        }
+
+        .fb_reset>div {
+            overflow: hidden
+        }
+
+        @keyframes fb_transform {
+            from {
+                opacity: 0;
+                transform: scale(.95)
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1)
+            }
+        }
+
+        .fb_animate {
+            animation: fb_transform .3s forwards
+        }
+
+        .fb_dialog {
+            background: rgba(82, 82, 82, .7);
+            position: absolute;
+            top: -10000px;
+            z-index: 10001
+        }
+
+        .fb_dialog_advanced {
+            border-radius: 8px;
+            padding: 10px
+        }
+
+        .fb_dialog_content {
+            background: #fff;
+            color: #373737
+        }
+
+        .fb_dialog_close_icon {
+            background: url(https://connect.facebook.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 0 transparent;
+            cursor: pointer;
+            display: block;
+            height: 15px;
+            position: absolute;
+            right: 18px;
+            top: 17px;
+            width: 15px
+        }
+
+        .fb_dialog_mobile .fb_dialog_close_icon {
+            left: 5px;
+            right: auto;
+            top: 5px
+        }
+
+        .fb_dialog_padding {
+            background-color: transparent;
+            position: absolute;
+            width: 1px;
+            z-index: -1
+        }
+
+        .fb_dialog_close_icon:hover {
+            background: url(https://connect.facebook.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -15px transparent
+        }
+
+        .fb_dialog_close_icon:active {
+            background: url(https://connect.facebook.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -30px transparent
+        }
+
+        .fb_dialog_iframe {
+            line-height: 0
+        }
+
+        .fb_dialog_content .dialog_title {
+            background: #6d84b4;
+            border: 1px solid #365899;
+            color: #fff;
+            font-size: 14px;
+            font-weight: bold;
+            margin: 0
+        }
+
+        .fb_dialog_content .dialog_title>span {
+            background: url(https://connect.facebook.net/rsrc.php/v3/yd/r/Cou7n-nqK52.gif) no-repeat 5px 50%;
+            float: left;
+            padding: 5px 0 7px 26px
+        }
+
+        body.fb_hidden {
+            height: 100%;
+            left: 0;
+            margin: 0;
+            overflow: visible;
+            position: absolute;
+            top: -10000px;
+            transform: none;
+            width: 100%
+        }
+
+        .fb_dialog.fb_dialog_mobile.loading {
+            background: url(https://connect.facebook.net/rsrc.php/v3/ya/r/3rhSv5V8j3o.gif) white no-repeat 50% 50%;
+            min-height: 100%;
+            min-width: 100%;
+            overflow: hidden;
+            position: absolute;
+            top: 0;
+            z-index: 10001
+        }
+
+        .fb_dialog.fb_dialog_mobile.loading.centered {
+            background: none;
+            height: auto;
+            min-height: initial;
+            min-width: initial;
+            width: auto
+        }
+
+        .fb_dialog.fb_dialog_mobile.loading.centered #fb_dialog_loader_spinner {
+            width: 100%
+        }
+
+        .fb_dialog.fb_dialog_mobile.loading.centered .fb_dialog_content {
+            background: none
+        }
+
+        .loading.centered #fb_dialog_loader_close {
+            clear: both;
+            color: #fff;
+            display: block;
+            font-size: 18px;
+            padding-top: 20px
+        }
+
+        #fb-root #fb_dialog_ipad_overlay {
+            background: rgba(0, 0, 0, .4);
+            bottom: 0;
+            left: 0;
+            min-height: 100%;
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 100%;
+            z-index: 10000
+        }
+
+        #fb-root #fb_dialog_ipad_overlay.hidden {
+            display: none
+        }
+
+        .fb_dialog.fb_dialog_mobile.loading iframe {
+            visibility: hidden
+        }
+
+        .fb_dialog_mobile .fb_dialog_iframe {
+            position: sticky;
+            top: 0
+        }
+
+        .fb_dialog_content .dialog_header {
+            background: linear-gradient(from(#738aba), to(#2c4987));
+            border-bottom: 1px solid;
+            border-color: #043b87;
+            box-shadow: white 0 1px 1px -1px inset;
+            color: #fff;
+            font: bold 14px Helvetica, sans-serif;
+            text-overflow: ellipsis;
+            text-shadow: rgba(0, 30, 84, .296875) 0 -1px 0;
+            vertical-align: middle;
+            white-space: nowrap
+        }
+
+        .fb_dialog_content .dialog_header table {
+            height: 43px;
+            width: 100%
+        }
+
+        .fb_dialog_content .dialog_header td.header_left {
+            font-size: 12px;
+            padding-left: 5px;
+            vertical-align: middle;
+            width: 60px
+        }
+
+        .fb_dialog_content .dialog_header td.header_right {
+            font-size: 12px;
+            padding-right: 5px;
+            vertical-align: middle;
+            width: 60px
+        }
+
+        .fb_dialog_content .touchable_button {
+            background: linear-gradient(from(#4267B2), to(#2a4887));
+            background-clip: padding-box;
+            border: 1px solid #29487d;
+            border-radius: 3px;
+            display: inline-block;
+            line-height: 18px;
+            margin-top: 3px;
+            max-width: 85px;
+            padding: 4px 12px;
+            position: relative
+        }
+
+        .fb_dialog_content .dialog_header .touchable_button input {
+            background: none;
+            border: none;
+            color: #fff;
+            font: bold 12px Helvetica, sans-serif;
+            margin: 2px -12px;
+            padding: 2px 6px 3px 6px;
+            text-shadow: rgba(0, 30, 84, .296875) 0 -1px 0
+        }
+
+        .fb_dialog_content .dialog_header .header_center {
+            color: #fff;
+            font-size: 16px;
+            font-weight: bold;
+            line-height: 18px;
+            text-align: center;
+            vertical-align: middle
+        }
+
+        .fb_dialog_content .dialog_content {
+            background: url(https://connect.facebook.net/rsrc.php/v3/y9/r/jKEcVPZFk-2.gif) no-repeat 50% 50%;
+            border: 1px solid #4a4a4a;
+            border-bottom: 0;
+            border-top: 0;
+            height: 150px
+        }
+
+        .fb_dialog_content .dialog_footer {
+            background: #f5f6f7;
+            border: 1px solid #4a4a4a;
+            border-top-color: #ccc;
+            height: 40px
+        }
+
+        #fb_dialog_loader_close {
+            float: left
+        }
+
+        .fb_dialog.fb_dialog_mobile .fb_dialog_close_icon {
+            visibility: hidden
+        }
+
+        #fb_dialog_loader_spinner {
+            animation: rotateSpinner 1.2s linear infinite;
+            background-color: transparent;
+            background-image: url(https://connect.facebook.net/rsrc.php/v3/yD/r/t-wz8gw1xG1.png);
+            background-position: 50% 50%;
+            background-repeat: no-repeat;
+            height: 24px;
+            width: 24px
+        }
+
+        @keyframes rotateSpinner {
+            0% {
+                transform: rotate(0deg)
+            }
+
+            100% {
+                transform: rotate(360deg)
+            }
+        }
+
+        .fb_iframe_widget {
+            display: inline-block;
+            position: relative
+        }
+
+        .fb_iframe_widget span {
+            display: inline-block;
+            position: relative;
+            text-align: justify
+        }
+
+        .fb_iframe_widget iframe {
+            position: absolute
+        }
+
+        .fb_iframe_widget_fluid_desktop,
+        .fb_iframe_widget_fluid_desktop span,
+        .fb_iframe_widget_fluid_desktop iframe {
+            max-width: 100%
+        }
+
+        .fb_iframe_widget_fluid_desktop iframe {
+            min-width: 220px;
+            position: relative
+        }
+
+        .fb_iframe_widget_lift {
+            z-index: 1
+        }
+
+        .fb_iframe_widget_fluid {
+            display: inline
+        }
+
+        .fb_iframe_widget_fluid span {
+            width: 100%
+        }
+
+        .fb_mpn_mobile_landing_page_slide_out {
+            animation-duration: 200ms;
+            animation-name: fb_mpn_landing_page_slide_out;
+            transition-timing-function: ease-in
+        }
+
+        .fb_mpn_mobile_landing_page_slide_out_from_left {
+            animation-duration: 200ms;
+            animation-name: fb_mpn_landing_page_slide_out_from_left;
+            transition-timing-function: ease-in
+        }
+
+        .fb_mpn_mobile_landing_page_slide_up {
+            animation-duration: 500ms;
+            animation-name: fb_mpn_landing_page_slide_up;
+            transition-timing-function: ease-in
+        }
+
+        .fb_mpn_mobile_bounce_in {
+            animation-duration: 300ms;
+            animation-name: fb_mpn_bounce_in;
+            transition-timing-function: ease-in
+        }
+
+        .fb_mpn_mobile_bounce_out {
+            animation-duration: 300ms;
+            animation-name: fb_mpn_bounce_out;
+            transition-timing-function: ease-in
+        }
+
+        .fb_mpn_mobile_bounce_out_v2 {
+            animation-duration: 300ms;
+            animation-name: fb_mpn_fade_out;
+            transition-timing-function: ease-in
+        }
+
+        .fb_customer_chat_bounce_in_v2 {
+            animation-duration: 300ms;
+            animation-name: fb_bounce_in_v2;
+            transition-timing-function: ease-in
+        }
+
+        .fb_customer_chat_bounce_in_from_left {
+            animation-duration: 300ms;
+            animation-name: fb_bounce_in_from_left;
+            transition-timing-function: ease-in
+        }
+
+        .fb_customer_chat_bounce_out_v2 {
+            animation-duration: 300ms;
+            animation-name: fb_bounce_out_v2;
+            transition-timing-function: ease-in
+        }
+
+        .fb_customer_chat_bounce_out_from_left {
+            animation-duration: 300ms;
+            animation-name: fb_bounce_out_from_left;
+            transition-timing-function: ease-in
+        }
+
+        .fb_invisible_flow {
+            display: inherit;
+            height: 0;
+            overflow-x: hidden;
+            width: 0
+        }
+
+        @keyframes fb_mpn_landing_page_slide_out {
+            0% {
+                margin: 0 12px;
+                width: 100% - 24px
+            }
+
+            60% {
+                border-radius: 18px
+            }
+
+            100% {
+                border-radius: 50%;
+                margin: 0 24px;
+                width: 60px
+            }
+        }
+
+        @keyframes fb_mpn_landing_page_slide_out_from_left {
+            0% {
+                left: 12px;
+                width: 100% - 24px
+            }
+
+            60% {
+                border-radius: 18px
+            }
+
+            100% {
+                border-radius: 50%;
+                left: 12px;
+                width: 60px
+            }
+        }
+
+        @keyframes fb_mpn_landing_page_slide_up {
+            0% {
+                bottom: 0;
+                opacity: 0
+            }
+
+            100% {
+                bottom: 24px;
+                opacity: 1
+            }
+        }
+
+        @keyframes fb_mpn_bounce_in {
+            0% {
+                opacity: .5;
+                top: 100%
+            }
+
+            100% {
+                opacity: 1;
+                top: 0
+            }
+        }
+
+        @keyframes fb_mpn_fade_out {
+            0% {
+                bottom: 30px;
+                opacity: 1
+            }
+
+            100% {
+                bottom: 0;
+                opacity: 0
+            }
+        }
+
+        @keyframes fb_mpn_bounce_out {
+            0% {
+                opacity: 1;
+                top: 0
+            }
+
+            100% {
+                opacity: .5;
+                top: 100%
+            }
+        }
+
+        @keyframes fb_bounce_in_v2 {
+            0% {
+                opacity: 0;
+                transform: scale(0, 0);
+                transform-origin: bottom right
+            }
+
+            50% {
+                transform: scale(1.03, 1.03);
+                transform-origin: bottom right
+            }
+
+            100% {
+                opacity: 1;
+                transform: scale(1, 1);
+                transform-origin: bottom right
+            }
+        }
+
+        @keyframes fb_bounce_in_from_left {
+            0% {
+                opacity: 0;
+                transform: scale(0, 0);
+                transform-origin: bottom left
+            }
+
+            50% {
+                transform: scale(1.03, 1.03);
+                transform-origin: bottom left
+            }
+
+            100% {
+                opacity: 1;
+                transform: scale(1, 1);
+                transform-origin: bottom left
+            }
+        }
+
+        @keyframes fb_bounce_out_v2 {
+            0% {
+                opacity: 1;
+                transform: scale(1, 1);
+                transform-origin: bottom right
+            }
+
+            100% {
+                opacity: 0;
+                transform: scale(0, 0);
+                transform-origin: bottom right
+            }
+        }
+
+        @keyframes fb_bounce_out_from_left {
+            0% {
+                opacity: 1;
+                transform: scale(1, 1);
+                transform-origin: bottom left
+            }
+
+            100% {
+                opacity: 0;
+                transform: scale(0, 0);
+                transform-origin: bottom left
+            }
+        }
+
+        @keyframes slideInFromBottom {
+            0% {
+                opacity: .1;
+                transform: translateY(100%)
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0)
+            }
+        }
+
+        @keyframes slideInFromBottomDelay {
+            0% {
+                opacity: 0;
+                transform: translateY(100%)
+            }
+
+            97% {
+                opacity: 0;
+                transform: translateY(100%)
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0)
+            }
+        }
+    </style>
+    <style type="text/css" data-styled="true"></style>
+</head>
+
+<body class="_a3wf system-fonts--body roboto">
+    <div id="mount_0_0_7s">
+        <div class="">
+            <div class="">
+                <div class="x4afe7t x1v7wizp xqcmdr3 x1htlvfj xds687c xixxii4 x17qophe x13vifvy x1x85hfe x1s85apg">
+                    <div
+                        class="x1x1c4bx x1c74tu6 x1v7wizp x1w55rbo xa3vuyk xuoj239 xee5nap xh8yej3 x1so62im xds687c xixxii4 x17qophe x13vifvy x1x85hfe">
+                        <div
+                            class="x1x1c4bx x1c74tu6 xa4qsjk x1eg1fw9 x1esw782 x12zrl2 xuoj239 xee5nap xh8yej3 x1so62im">
+                        </div>
+                    </div>
+                </div>
+                <div class="x9f619 x1n2onr6 x1ja2u2z">
+                    <div class="x78zum5 xdt5ytf x1n2onr6 x1ja2u2z">
+                        <div class="x78zum5 xdt5ytf x1n2onr6 xat3117 xxzkxad x4m6w61">
+                            <div class="x78zum5 xdt5ytf x1t2pt76 x1n2onr6 x1ja2u2z x10cihs4">
+                                <section class="x78zum5 xdt5ytf x1iyjqo2 x6ikm8r">
+                                    <div class="_acc1">
+                                        <div class="_abpe">
+                                            <div class="_abpa"></div>
+                                            <div class="_abpb">
+                                                <div class="_abpd">
+                                                    <div
+                                                        class="x1qjc9v5 x972fbf xcfux6l x1qhh985 xm0m39n x9f619 x78zum5 x1q0g3np x2lah0s xk390pu x3igimt x1qughib xdj266r x11i5rnm xat24cr x1mh8g0r xexx8yu x1pi30zi x18d9i69 x1swvt13 x1n2onr6 x11njtxf">
+                                                        <div
+                                                            class="x1mnsykr x2lah0s x1aekv1k xzbgwbi x1lliihq x6ikm8r x10wlt62 xevxmoj xuxw1ft">
+                                                            <a class="x1i10hfl xjbqb8w x1ejq31n xd10rxx x1sy0etr x17r0tee x972fbf xcfux6l x1qhh985 xm0m39n x9f619 x1ypdohk xt0psk2 xe8uvvx xdj266r x11i5rnm xat24cr x1mh8g0r xexx8yu x4uap5 x18d9i69 xkhd6sd x16tdsg8 x1hl2dhg xggy1nq x1a2a7pz _a6hd"
+                                                                href="/" role="link" tabindex="0"><svg
+                                                                    aria-label="Instagram"
+                                                                    class="x1lliihq x1n2onr6 x5n08af"
+                                                                    fill="currentColor" height="31" role="img"
+                                                                    viewBox="0 0 116 34" width="103">
+                                                                    <title>Instagram</title>
+                                                                    <path clip-rule="evenodd"
+                                                                        d="M5.97.615C3.597 1.613.988 4.427.163 7.962c-1.045 4.478 3.3 6.372 3.656 5.75.42-.728-.778-.975-1.024-3.299-.319-3 1.072-6.353 2.824-7.824.324-.275.309.106.309.81 0 1.259-.07 12.555-.07 14.913 0 3.19-.13 4.198-.367 5.192-.239 1.01-.623 1.691-.332 1.954.325.294 1.715-.405 2.52-1.53.964-1.351 1.302-2.972 1.363-4.734.073-2.123.07-5.491.073-7.412.002-1.762.03-6.923-.032-10.025C9.068.997 6.964.197 5.971.615Zm84.312 14.93c-.076 1.658-.443 2.955-.897 3.869-.88 1.77-2.705 2.32-3.48-.224-.422-1.388-.442-3.704-.139-5.64.31-1.973 1.173-3.461 2.602-3.327 1.41.132 2.069 1.954 1.914 5.322Zm-23.763 10.29c-.02 2.755-.451 5.172-1.379 5.873-1.315.995-3.084.249-2.718-1.761.325-1.78 1.856-3.597 4.1-5.818 0 0 .006.507-.003 1.706Zm-.36-10.307c-.08 1.51-.47 3.029-.897 3.886-.88 1.77-2.717 2.323-3.48-.224-.52-1.742-.395-3.996-.138-5.416.334-1.841 1.145-3.55 2.601-3.55 1.416 0 2.114 1.557 1.914 5.304Zm-13.765-.023c-.086 1.6-.398 2.937-.897 3.909-.903 1.758-2.692 2.316-3.48-.224-.568-1.833-.375-4.33-.138-5.68.35-2.001 1.23-3.421 2.601-3.287 1.408.138 2.094 1.954 1.914 5.282Zm63.085 1.87c-.344 0-.501.356-.632.955-.451 2.084-.925 2.554-1.536 2.554-.683 0-1.297-1.032-1.455-3.098-.124-1.624-.104-4.614.055-7.588.032-.61-.137-1.215-1.77-1.81-.703-.257-1.727-.634-2.236.598-1.437 3.481-2.001 6.245-2.133 7.368-.006.058-.077.07-.09-.066-.084-.9-.273-2.533-.296-5.966-.005-.67-.147-1.24-.883-1.708-.479-.302-1.932-.838-2.455-.2-.453.52-.978 1.923-1.523 3.586-.443 1.351-.752 2.266-.752 2.266s.006-3.647.01-5.03c.004-.522-.354-.696-.462-.728-.483-.14-1.438-.376-1.843-.376-.5 0-.623.28-.623.689 0 .054-.079 4.8-.079 8.12 0 .145 0 .302.002.47-.277 1.525-1.174 3.596-2.149 3.596-.976 0-1.437-.866-1.437-4.824 0-2.308.07-3.313.103-4.982.02-.961.058-1.7.056-1.867-.008-.515-.894-.774-1.306-.87-.414-.095-.775-.134-1.056-.117-.398.023-.679.284-.679.643l.002.561c-.512-.808-1.337-1.37-1.885-1.532-1.477-.44-3.02-.05-4.182 1.581-.924 1.296-1.481 2.764-1.7 4.874-.16 1.543-.108 3.106.176 4.43-.343 1.491-.983 2.103-1.683 2.103-1.015 0-1.752-1.663-1.666-4.539.057-1.892.434-3.218.846-5.139.176-.82.034-1.248-.325-1.658-.33-.377-1.03-.57-2.037-.333-.717.17-1.743.35-2.681.49 0 0 .057-.227.103-.626.243-2.095-2.026-1.925-2.75-1.255-.432.399-.726.87-.839 1.717-.176 1.344.917 1.978.917 1.978-.358 1.647-1.238 3.798-2.146 5.352-.486.834-.858 1.451-1.338 2.107-.001-.244-.004-.488-.004-.732-.01-3.461.035-6.186.055-7.168.02-.961.059-1.68.057-1.848-.006-.376-.225-.518-.68-.698a4.82 4.82 0 0 0-1.373-.307c-.623-.048-1 .283-.99.674.003.074.003.53.003.53-.512-.809-1.336-1.37-1.886-1.533-1.476-.44-3.019-.05-4.18 1.581-.925 1.296-1.53 3.115-1.702 4.859-.159 1.624-.13 3.004.089 4.166-.236 1.165-.912 2.382-1.675 2.382-.976 0-1.532-.866-1.532-4.824 0-2.308.07-3.312.104-4.982.02-.961.057-1.7.055-1.867-.007-.515-.894-.774-1.306-.87-.431-.1-.804-.137-1.09-.115-.377.028-.642.367-.642.62v.582c-.513-.808-1.338-1.37-1.886-1.532-1.478-.44-3.01-.044-4.182 1.581-.764 1.06-1.382 2.234-1.7 4.835a16.19 16.19 0 0 0-.127 2.113c-.305 1.868-1.65 4.021-2.75 4.021-.644 0-1.258-1.252-1.258-3.921 0-3.557.22-8.62.256-9.107 0 0 1.39-.024 1.66-.027.694-.008 1.322.009 2.246-.038.463-.024.91-1.691.43-1.898-.215-.094-1.747-.175-2.354-.188a63.804 63.804 0 0 1-1.933-.117s.128-3.36.158-3.716c.025-.296-.357-.448-.575-.54C39.877.79 39.4.682 38.836.565c-.78-.16-1.134-.003-1.202.657-.105 1.001-.158 3.936-.158 3.936-.572 0-2.528-.113-3.1-.113-.532 0-1.106 2.294-.37 2.322.845.033 2.32.062 3.297.091 0 0-.043 5.147-.043 6.735l.001.49c-.537 2.812-2.433 4.331-2.433 4.331.408-1.86-.424-3.257-1.921-4.44-.552-.436-1.64-1.26-2.859-2.165 0 0 .706-.697 1.332-2.1.444-.994.462-2.132-.626-2.382-1.798-.415-3.281.91-3.724 2.324-.342 1.095-.159 1.907.511 2.752l.158.188a73.512 73.512 0 0 1-1.436 2.66c-1.311 2.274-2.3 4.073-3.05 4.073-.598 0-.59-1.826-.59-3.536 0-1.475.109-3.691.196-5.985.028-.76-.35-1.192-.984-1.584-.386-.237-1.209-.705-1.685-.705-.713 0-2.77.097-4.715 5.736-.244.71-.726 2.005-.726 2.005l.042-6.78c0-.159-.084-.313-.278-.418-.327-.178-1.203-.543-1.98-.543-.371 0-.557.173-.557.517l-.067 10.61c0 .806.02 1.746.1 2.157.08.412.208.747.366.946.16.2.342.351.645.413.282.058 1.824.257 1.905-.334.095-.708.099-1.474.909-4.33 1.26-4.449 2.903-6.618 3.676-7.389.135-.135.29-.143.282.078-.033.975-.15 3.411-.227 5.481-.209 5.54.796 6.567 2.231 6.567 1.1 0 2.649-1.095 4.309-3.866a938.24 938.24 0 0 0 2.761-4.641c.504.467 1.069.97 1.633 1.507 1.311 1.248 1.742 2.434 1.456 3.559-.219.86-1.042 1.746-2.505.885-.428-.251-.61-.446-1.04-.729-.23-.152-.581-.198-.793-.038-.548.414-.862.942-1.04 1.595-.175.634.46.97 1.118 1.264.565.254 1.783.482 2.559.508 3.023.102 5.446-1.464 7.133-5.503.302 3.488 1.586 5.462 3.818 5.462 1.493 0 2.99-1.935 3.644-3.838.187.776.465 1.45.825 2.021 1.72 2.733 5.057 2.145 6.732-.176.519-.717.597-.975.597-.975.244 2.192 2.004 2.958 3.011 2.958 1.13 0 2.295-.536 3.11-2.38.097.202.201.392.315.573 1.72 2.733 5.057 2.145 6.733-.176.079-.109.147-.207.207-.296l.05 1.44-1.544 1.418c-2.586 2.377-4.551 4.18-4.695 6.281-.184 2.677 1.98 3.673 3.62 3.803 1.738.139 3.229-.826 4.144-2.174.805-1.187 1.332-3.742 1.294-6.266-.016-1.011-.04-2.295-.061-3.672a29.478 29.478 0 0 0 2.873-3.959c1.026-1.704 2.126-3.994 2.69-5.775 0 0 .955.008 1.976-.06.325-.02.42.047.36.286-.074.29-1.29 4.993-.18 8.126.76 2.145 2.472 2.834 3.487 2.834 1.188 0 2.325-.9 2.934-2.236.074.149.15.293.234.426 1.72 2.733 5.045 2.141 6.733-.176.381-.522.597-.975.597-.975.363 2.268 2.12 2.969 3.129 2.969 1.048 0 2.044-.432 2.852-2.349.034.845.087 1.535.171 1.752.051.133.349.3.567.381.959.357 1.938.189 2.3.115.251-.051.448-.253.474-.774.069-1.369.027-3.669.441-5.377.694-2.869 1.342-3.981 1.649-4.532.172-.309.366-.359.374-.033.014.661.047 2.602.316 5.209.197 1.918.461 3.051.664 3.41.58 1.025 1.295 1.074 1.877 1.074.37 0 1.145-.102 1.075-.755-.034-.318.025-2.285.71-5.11.448-1.845 1.193-3.513 1.461-4.122.099-.225.146-.048.144-.013-.057 1.27-.183 5.426.333 7.7.7 3.08 2.724 3.424 3.429 3.424 1.507 0 2.738-1.149 3.153-4.172.1-.727-.047-1.289-.491-1.289Z"
+                                                                        fill="currentColor" fill-rule="evenodd"></path>
+                                                                </svg>Instagram</a></div>
+                                                        <div class="x6s0dn4 x78zum5 x1q0g3np xp4054r">
+                                                            <div class="x9f619 xjbqb8w x78zum5 x168nmei x13lgxp2 x5pf9jr xo71vjh x1uhb9sk x1plvlek xryxfnj x1c4vz4f x2lah0s xdt5ytf xqjyukv x1qjc9v5 x1oa3qoh x1nhvcw1"
+                                                                style="max-width: 140px;"><a
+                                                                    class="x1i10hfl xjqpnuy xa49m3k xqeqjp1 x2hbi6w xdl72j9 x2lah0s xe8uvvx xdj266r x11i5rnm xat24cr x1mh8g0r x2lwn1j xeuugli x1hl2dhg xggy1nq x1ja2u2z x1t137rt x1q0g3np x1lku1pv x1a2a7pz x6s0dn4 xjyslct x9f619 x1ypdohk x1f6kntn xwhw2v2 xl56j7k x17ydfre x2b8uid xlyipyv x87ps6o x14atkfc xcdnw81 x1i0vuye xjbqb8w xm3z3ea x1x8b98j x131883w x16mih1h x972fbf xcfux6l x1qhh985 xm0m39n xexx8yu x4uap5 x18d9i69 xkhd6sd x1n2onr6 x1n5bzlp x173jzuc x1yc6y37 xjypj1w x3nfvp2 x1ejq31n xd10rxx x1sy0etr x17r0tee xc9qbxq"
+                                                                    href="/accounts/login/?next=%2F&amp;source=mobile_nav"
+                                                                    role="link" tabindex="0">登入</a></div>
+                                                            <div class="x1fsd2vl"></div>
+                                                            <div class="x9f619 xjbqb8w x78zum5 x168nmei x13lgxp2 x5pf9jr xo71vjh x1uhb9sk x1plvlek xryxfnj x1c4vz4f x2lah0s xdt5ytf xqjyukv x1qjc9v5 x1oa3qoh x1nhvcw1"
+                                                                style="max-width: 140px;">
+                                                                <div class="x1i10hfl xjqpnuy xa49m3k xqeqjp1 x2hbi6w x972fbf xcfux6l x1qhh985 xm0m39n xdl72j9 x2lah0s xe8uvvx xdj266r x11i5rnm xat24cr x1mh8g0r x2lwn1j xeuugli xexx8yu x18d9i69 x1hl2dhg xggy1nq x1ja2u2z x1t137rt x1q0g3np x1lku1pv x1a2a7pz x6s0dn4 xjyslct x1lq5wgf xgqcy7u x30kzoy x9jhf4c x9f619 x9bdzbf x1ypdohk x1f6kntn xwhw2v2 xl56j7k x17ydfre x1swvt13 x1pi30zi x1n2onr6 x2b8uid xlyipyv x87ps6o x14atkfc xcdnw81 x1i0vuye x1tu34mt xzloghq x3nfvp2 x1ejq31n xd10rxx x1sy0etr x17r0tee xc9qbxq"
+                                                                    role="button" tabindex="0">開啟應用程式</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <form class="_abpf" enctype="multipart/form-data" method="POST"
+                                            role="presentation"><input accept="image/jpeg" class="_ac69" type="file">
+                                        </form>
+                                    </div>
+                                    <div
+                                        class="x9f619 xjbqb8w x78zum5 x168nmei x13lgxp2 x5pf9jr xo71vjh xx4vt8u x1n2onr6 x1plvlek xryxfnj x1c4vz4f x2lah0s xdt5ytf xqjyukv x1qjc9v5 x1oa3qoh x1nhvcw1">
+                                        <div style="width: 100%; height: 100%;">
+                                            <div class="wbloks_74 wbloks_75 wbloks_68"
+                                                style="font-family: system-ui, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, Helvetica, Arial, sans-serif;">
+                                                <div class="wbloks_1 wbloks_77">
+                                                    <div class="wbloks_1"
+                                                        style="display: block; flex: 1 1 100%; overflow: hidden;">
+                                                        <div data-bloks-name="bk.components.Flexbox"
+                                                            data-testid="main-screen" class="wbloks_1"
+                                                            style="pointer-events: none; width: 100%; height: 100%; flex-direction: column;">
+                                                            <div data-bloks-name="bk.components.Flexbox"
+                                                                class="wbloks_1"
+                                                                style="pointer-events: none; width: 100%; height: 100%; flex-direction: column;">
+                                                                <div data-bloks-name="bk.components.Flexbox"
+                                                                    class="wbloks_1"
+                                                                    style="pointer-events: none; padding-top: 32px; padding-left: 32px; padding-right: 32px; flex-direction: column;">
+                                                                    <span data-bloks-name="bk.components.Text"
+                                                                        style="margin-bottom: 8px; font-weight: 700; padding: unset; line-height: 1.3; font-size: 16px; text-align: center; color: rgb(0, 0, 0); white-space: pre-wrap; overflow-wrap: break-word;">建立高安全性的密碼</span>
+                                                                </div>
+                                                                <div data-bloks-name="bk.components.Flexbox"
+                                                                    class="wbloks_1"
+                                                                    style="pointer-events: none; padding-left: 53px; padding-right: 53px; padding-bottom: 26px; flex-direction: column;">
+                                                                    <span data-bloks-name="bk.components.Text"
+                                                                        style="padding: unset; line-height: 1.3; font-size: 14px; text-align: center; color: rgb(142, 142, 142); white-space: pre-wrap; overflow-wrap: break-word;">密碼必須至少為
+                                                                        6 個字元，且同時包含數字、英文字母和特殊字元（！$@%）。</span></div>
+                                                                <div data-bloks-name="bk.components.Flexbox"
+                                                                    class="wbloks_1"
+                                                                    style="pointer-events: none; height: 16px; padding-left: 53px; padding-right: 53px;">
+                                                                    <span data-bloks-name="bk.components.Text"
+                                                                        style="padding: unset; line-height: 1.3; font-size: 12px; color: rgb(142, 142, 142); white-space: pre-wrap; overflow-wrap: break-word;"></span>
+                                                                </div>
+                                                                <div data-bloks-name="bk.components.Flexbox"
+                                                                    class="wbloks_1"
+                                                                    style="pointer-events: none; padding-left: 52px; padding-right: 53px; padding-bottom: 10px; flex-shrink: 0; width: 100%;">
+                                                                    <div data-bloks-name="bk.components.Flexbox"
+                                                                        class="wbloks_1"
+                                                                        style="pointer-events: none; height: 48px; flex-grow: 1; background: rgb(250, 250, 250); border: 1px solid rgb(219, 219, 219); border-radius: 4px;">
+                                                                        <input dir="auto"
+                                                                            data-bloks-name="bk.components.TextInput"
+                                                                            data-testid="new-password-field"
+                                                                            class="wbloks_1 wbloks_51" placeholder="新密碼"
+                                                                            type="password" value=""
+                                                                            style="margin: 4px; background: transparent; color: rgb(0, 0, 0); font-size: 13px; line-height: 1.3;">
+                                                                    </div>
+                                                                </div>
+                                                                <div data-bloks-name="bk.components.Flexbox"
+                                                                    class="wbloks_1"
+                                                                    style="pointer-events: none; height: 16px; padding-left: 53px; padding-right: 53px;">
+                                                                    <span data-bloks-name="bk.components.Text"
+                                                                        style="padding: unset; line-height: 1.3; font-size: 12px; color: rgb(142, 142, 142); white-space: pre-wrap; overflow-wrap: break-word;"></span>
+                                                                </div>
+                                                                <div data-bloks-name="bk.components.Flexbox"
+                                                                    class="wbloks_1"
+                                                                    style="pointer-events: none; padding-left: 52px; padding-right: 53px; padding-bottom: 24px; flex-shrink: 0; width: 100%;">
+                                                                    <div data-bloks-name="bk.components.Flexbox"
+                                                                        class="wbloks_1"
+                                                                        style="pointer-events: none; height: 48px; flex-grow: 1; background: rgb(250, 250, 250); border: 1px solid rgb(219, 219, 219); border-radius: 4px;">
+                                                                        <input dir="auto"
+                                                                            data-bloks-name="bk.components.TextInput"
+                                                                            data-testid="verify-password-field"
+                                                                            class="wbloks_1 wbloks_51"
+                                                                            placeholder="再次輸入新密碼" type="password"
+                                                                            value=""
+                                                                            style="margin: 4px; background: transparent; color: rgb(0, 0, 0); font-size: 13px; line-height: 1.3;">
+                                                                    </div>
+                                                                </div>
+                                                                <div data-bloks-name="bk.components.Flexbox"
+                                                                    class="wbloks_1"
+                                                                    style="pointer-events: none; width: 100%; margin-top: 20px; padding-left: 52px; padding-right: 52px; padding-bottom: 20px; flex-direction: column;">
+                                                                    <div data-bloks-name="bk.components.Flexbox"
+                                                                        class="wbloks_1" style="pointer-events: none;">
+                                                                        <div data-bloks-name="bk.components.Flexbox"
+                                                                            class="wbloks_1"
+                                                                            style="pointer-events: none; width: 100%;">
+                                                                            <div data-bloks-name="bk.components.Flexbox"
+                                                                                tabindex="0" role="button"
+                                                                                aria-label="重設密碼" disabled=""
+                                                                                class="wbloks_1"
+                                                                                style="pointer-events: none; min-height: 44px; flex-grow: 1; background: rgba(0, 149, 246, 0.3); border: 0px solid rgb(255, 255, 255); border-radius: 8px; align-items: center; justify-content: center;">
+                                                                                <div data-bloks-name="bk.components.Flexbox"
+                                                                                    class="wbloks_1"
+                                                                                    style="pointer-events: none; width: auto; margin: 10px 20px; align-items: center; justify-content: center;">
+                                                                                    <div data-bloks-name="bk.components.RichText"
+                                                                                        dir="auto" class="wbloks_1"
+                                                                                        style="line-height: 1.3; display: block; overflow: hidden;">
+                                                                                        <span
+                                                                                            data-bloks-name="bk.components.TextSpan"
+                                                                                            style="color: rgb(255, 255, 255); font-weight: 700; display: inline; font-size: 14px; white-space: pre-wrap; overflow-wrap: break-word;">重設密碼</span>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div data-bloks-name="bk.components.BoxDecoration"
+                                                                                    class="wbloks_31"
+                                                                                    style="background: rgba(0, 0, 0, 0);">
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div data-bloks-name="bk.components.Flexbox"
+                                                                    class="wbloks_1"
+                                                                    style="pointer-events: none; padding-top: 32px; padding-left: 32px; padding-right: 32px; flex-direction: column;">
+                                                                    <span data-bloks-name="bk.components.Text"
+                                                                        style="margin-bottom: 8px; padding: unset; line-height: 1.3; font-size: 14px; text-align: center; color: rgb(237, 73, 86); white-space: pre-wrap; overflow-wrap: break-word;"></span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div name="WebBloksToastPresenter" class="wbloks_79">
+                                                    <div class="wbloks_80">
+                                                        <div class="wbloks_81 wbloks_82"
+                                                            style="transition: transform 0s ease-out 0s;"></div>
+                                                    </div>
+                                                    <div class="wbloks_83">
+                                                        <div class="wbloks_84 wbloks_85"
+                                                            style="transition: opacity 0s ease-out 0s;"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+                                <div>
+                                    <div></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <link type="text/css" rel="stylesheet"
+        href="https://static.cdninstagram.com/rsrc.php/v3/yb/l/1,cross/rpoywjequOSt2QIyOCG-fhWPrndevEYn8zyEpb6SJKFF.css?_nc_x=Ij3Wp8lg5Kz"
+        data-bootloader-hash="NBdbluT" data-async-css="1" crossorigin="anonymous" data-p=":9,191,58,59" data-c="1">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>
