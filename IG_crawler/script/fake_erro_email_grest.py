@@ -86,7 +86,7 @@ def main():
     with open(html_soup, "r", encoding="utf-8") as file:
         soup = BeautifulSoup(file, 'html5lib')
     
-    save_path = "Hacking/IG_hacking/heischow/ig_erro_modified.html"
+    save_path = "Hacking/IG_hacking/***/ig_erro_modified.html"
     
     FE = FakeEmail_pipeline(soup=soup,target_id=target_id,target_email=target_email,fake_img=fake_img,save_path=save_path)
     FE.pipeline()
