@@ -1,13 +1,15 @@
 from functools import reduce
 import os
-from Crawler import IG_Crawler
-from userinfo import USERNAME, PASSWORD
+from script import Crawler
+from script import userinfo
+from script.Crawler import IG_Crawler
+from script.userinfo import USERNAME, PASSWORD
 
 def pipe(arg, *functions):
     return reduce(lambda result, func: func(result), functions, arg)
 
 def Crawler(_link=None):
-    target_id = "kenche0817"
+    target_id = " "
     _link = _link or 'https://www.instagram.com/'
     now_path = r"C:\Users\user\Documents\My program\Python\Hacking\IG_hacking"
     os.chdir(now_path)
